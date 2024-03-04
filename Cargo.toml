@@ -1,0 +1,42 @@
+[package]
+name = "paper_review_client"
+version = "0.1.0"
+authors = ["Kawaro <kawaro499@outlook.com>"]
+description = "A paper evolution client"
+license = "MIT"
+edition = "2021"
+
+[[bin]]
+name = "paper_review_client"
+path = "src/main.rs"
+
+[package.metadata.bundle]
+name = "PaperEvolution"
+identifier = "com.kawaro.paper-evolution"
+version = "0.1.0"
+copyright = "Copyright (c) 2021 Kawaro"
+icon = ["icon.png"]
+short_description = "A paper volution client"
+
+[profile.release]
+bundle.target = "x86_64-apple-darwin"
+
+
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+egui = "0.26.2"
+eframe = "0.26.2"
+serde = { version = "*", features = ["derive"] }
+rfd = "0.14.0"
+
+[dependencies.rusqlite]
+version = "0.31.0"
+features = ["bundled"]
+
+[build]
+target = "x86_64-pc-windows-gnu"
+
+[target.x86_64-pc-windows-gnu]
+linker = "x86_64-w64-mingw32-gcc"
